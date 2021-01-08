@@ -10,11 +10,23 @@ app.use(morgan('dev'))
 
 const validTypes = [`Bug`, `Dark`, `Dragon`, `Electric`, `Fairy`, `Fighting`, `Fire`, `Flying`, `Ghost`, `Grass`, `Ground`, `Ice`, `Normal`, `Poison`, `Psychic`, `Rock`, `Steel`, `Water`]
 
+app.use(function validateBearerToken(req, res, next) {
+  console.log('validate bearer token middleware')
+  // move to the next middleware
+  next()
+})
+
 function handleGetTypes(req, res) {
   res.json(validTypes)
 }
   
 app.get('/types', handleGetTypes)
+
+function handleGetPokemon(req, res) {
+  res.send('Hello, Pokemon!')
+}
+  
+app.get('/pokemon', handleGetPokemon)
 
 const PORT = 8000
 
