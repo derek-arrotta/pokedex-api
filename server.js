@@ -12,6 +12,7 @@ const validTypes = [`Bug`, `Dark`, `Dragon`, `Electric`, `Fairy`, `Fighting`, `F
 
 app.use(function validateBearerToken(req, res, next) {
   console.log('validate bearer token middleware')
+  debugger
   // move to the next middleware
   next()
 })
